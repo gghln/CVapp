@@ -1,27 +1,18 @@
+/* eslint-disable react/prop-types */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleUp,faAngleDown, faUser, faPlus} from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
 
-function GeneralInfos() {
+function GeneralInfos({firstName,lastName,email,phoneNumber,setFirstName,setLastName,setEmail,setPhoneNumber}){
     const [arrow,setArrow] = useState(<FontAwesomeIcon icon={faAngleDown} />)
     const plusButton = <FontAwesomeIcon icon={faPlus} />
     const user = <FontAwesomeIcon icon={faUser} />
     const [open, setOPen] = useState(false);
     const width = 400;
     const [height,setHeight] = useState(80)
-    const [firstName,setFirstName] = useState('')
-    const [lastName,setLastName] = useState('')
-    const [email,setEmail] = useState('')
-    const [phoneNumber,setPhoneNumber] = useState('')
-
+    
     const handleSumbit = event => {
         event.preventDefault()
-
-        console.log(firstName)
-        console.log(lastName)
-        console.log(email)
-        console.log(phoneNumber)
-
         setFirstName('')
         setLastName('')
         setEmail('')

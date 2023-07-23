@@ -10,12 +10,24 @@ html,body{
     height: 100%;
 }
 
-#container{
+#app-container{
+    display: flex;
+    flex-direction: row;
+}
+
+#cards-container{
     display:flex;
     flex-direction: column;
     width:45%;
     row-gap:1em;
     margin:5% 0 0 10%;
+}
+
+#cv-container{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    row-gap: 10px;
 }
 
 .flex-item{
@@ -68,4 +80,10 @@ button{
     background-color: white;
     border-style: none;
     font-size: 30px;
+    cursor: pointer;
+}
+
+button:hover{
+    transform: scale(1.2);
+    cursor: pointer;
 }
