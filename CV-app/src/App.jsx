@@ -11,6 +11,14 @@ function App() {
   const [email,setEmail] = useState('')
   const [phoneNumber,setPhoneNumber] = useState('')
   const [isSubmited,setIsSubmited] = useState(false)
+  const [companyName,setCompanyName] = useState('')
+  const [jobTitle,setJobTitle] = useState('')
+  const [startDate,setStartDate] = useState('')
+  const [endDate,setEndDate] = useState('')
+  const [schoolName,setSchoolName] = useState('')
+  const [degreeTitle,setDegreeTitle] = useState('')
+  const [schoolStartDate,setSchoolStartDate] = useState('')
+  const [schoolEndDate,setSchoolEndDate] = useState('')
 
   return(
     <div id='app-container'>
@@ -27,11 +35,48 @@ function App() {
             setPhoneNumber={setPhoneNumber}
             setIsSubmited={setIsSubmited}
           />
-          <Education />
-          <JobExperience />
+          <Education
+            schoolName={schoolName}
+            degreeTitle={degreeTitle}
+            schoolStartDate={schoolStartDate}
+            schoolEndDate={schoolEndDate}
+            isSubmited={isSubmited}
+            setSchoolName={setSchoolName}
+            setDegreeTitle={setDegreeTitle}
+            setSchoolStartDate={setSchoolStartDate}
+            setSchoolEndDate={setSchoolEndDate}
+            setIsSubmited={setIsSubmited}
+          />
+          <JobExperience 
+            jobTitle={jobTitle}
+            companyName={companyName}
+            startDate={startDate}
+            endDate={endDate}
+            isSubmited={isSubmited}
+            setCompanyName={setCompanyName}
+            setJobTitle={setJobTitle}
+            setStartDate={setStartDate}
+            setEndDate={setEndDate}
+            setIsSubmited={setIsSubmited}
+            />
         </div>
         <div id='cv-container'>
-          {isSubmited && <CV firstName={firstName} lastName={lastName} email={email} phoneNumber={phoneNumber}/>}
+          {isSubmited && 
+            <CV 
+              firstName={firstName} 
+              lastName={lastName} 
+              email={email} 
+              phoneNumber={phoneNumber}
+              jobTitle={jobTitle}
+              companyName={companyName}
+              startDate={startDate}
+              endDate={endDate}
+              schoolName={schoolName}
+              degreeTitle={degreeTitle}
+              schoolStartDate={schoolStartDate}
+              schoolEndDate={schoolEndDate}
+              />
+            }
         </div>
     </div>
   )

@@ -1,45 +1,42 @@
+/* eslint-disable react/prop-types */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleUp,faAngleDown, faBriefcase, faPlus} from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
 
-function JobExperience(){
+function JobExperience(props){
+    const{
+        jobTitle,
+        companyName,
+        startDate,
+        endDate,
+        setCompanyName,
+        setJobTitle,
+        setStartDate,
+        setEndDate,
+        setIsSubmited} = props
     const [arrow,setArrow] = useState(<FontAwesomeIcon icon={faAngleDown} />)
     const plusButton = <FontAwesomeIcon icon={faPlus} />
     const work = <FontAwesomeIcon icon = {faBriefcase} />
     const [open, setOPen] = useState(false);
-    const width = 400;
     const [height,setHeight] = useState(80)
-    const [companyName,setCompanyName] = useState('')
-    const [jobTitle,setJobTitle] = useState('')
-    const [startDate,setStartDate] = useState('')
-    const [endDate,setEndDate] = useState('')
 
     const handleSumbit = event => {
         event.preventDefault()
-
-        console.log(companyName)
-        console.log(jobTitle)
-        console.log(startDate)
-        console.log(endDate)
-
-        setCompanyName('')
-        setJobTitle('')
-        setStartDate('')
-        setEndDate('')
+        setIsSubmited(true)
     }
 
     const Toggle = () => {
         setOPen(!open)
-        if(height==500){
+        if(height==480){
             setHeight(80)
             setArrow(<FontAwesomeIcon icon={faAngleDown} />)
         }else{
-            setHeight(500)
+            setHeight(480)
             setArrow(<FontAwesomeIcon icon={faAngleUp} />)
         }  
    }
     return(
-        <div className='flex-item' style={{width:width+'px',height:height+'px'}}>
+        <div className='flex-item' style={{width:'400px',height:height+'px'}}>
             <span>
                 <i className="icon">{work}</i>
                 <h2>Job Experience</h2> 
