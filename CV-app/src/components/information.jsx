@@ -3,21 +3,29 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleUp,faAngleDown, faUser, faPlus} from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
 
-function GeneralInfos({firstName,lastName,email,phoneNumber,setFirstName,setLastName,setEmail,setPhoneNumber}){
+function GeneralInfos(props){  
+    const {
+        firstName, 
+        lastName, 
+        email, 
+        phoneNumber, 
+        setFirstName, 
+        setLastName,
+        setEmail, 
+        setPhoneNumber, 
+        setIsSubmited} = props
     const [arrow,setArrow] = useState(<FontAwesomeIcon icon={faAngleDown} />)
     const plusButton = <FontAwesomeIcon icon={faPlus} />
     const user = <FontAwesomeIcon icon={faUser} />
     const [open, setOPen] = useState(false);
     const width = 400;
     const [height,setHeight] = useState(80)
-    
-    const handleSumbit = event => {
+
+    const handleSubmit = event => {
+        setIsSubmited(true)
         event.preventDefault()
-        setFirstName('')
-        setLastName('')
-        setEmail('')
-        setPhoneNumber('')
     }
+
 
     const Toggle = () => {
         setOPen(!open)
@@ -31,6 +39,7 @@ function GeneralInfos({firstName,lastName,email,phoneNumber,setFirstName,setLast
     }
 
     return(
+        <>
             <div className='flex-item' style={{width:width+'px',height:height+'px'}}>
                 <span>
                     <i className="icon">{user}</i>
@@ -38,7 +47,7 @@ function GeneralInfos({firstName,lastName,email,phoneNumber,setFirstName,setLast
                     <button onClick={Toggle}>{arrow}</button>
                 </span>  
                 { open && (
-                    <form onSubmit={handleSumbit}>
+                    <form onSubmit={handleSubmit}>
                         <label>First name</label>
                         <input  type="text" placeholder='First Name' value={firstName} onChange={event => setFirstName(event.target.value)}/>
                         <label>Last name</label>
@@ -51,7 +60,10 @@ function GeneralInfos({firstName,lastName,email,phoneNumber,setFirstName,setLast
                     </form> 
                  )} 
             </div> 
+        </>
     )
 }
+
+
 
 export default GeneralInfos
