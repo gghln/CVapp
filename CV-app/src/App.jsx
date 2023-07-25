@@ -1,9 +1,10 @@
 import './App.css'
-import GeneralInfos from './components/information.jsx'
+import GeneralInfos from './components/information'
 import Education from './components/Education'
 import JobExperience from './components/Job_Exprerience'
 import CV from './components/CV_Template';
 import { useState } from 'react';
+import Header from './components/Header'
 
 function App() {
   const [firstName,setFirstName] = useState('')
@@ -21,62 +22,65 @@ function App() {
   const [schoolEndDate,setSchoolEndDate] = useState('')
 
   return(
-    <>
-        <div id='cards-container'>
-          <GeneralInfos 
-            firstName={firstName}
-            lastName={lastName}
-            email={email}
-            phoneNumber={phoneNumber}
-            isSubmited={isSubmited}
-            setFirstName={setFirstName}
-            setLastName={setLastName}
-            setEmail={setEmail}
-            setPhoneNumber={setPhoneNumber}
-            setIsSubmited={setIsSubmited}
-          />
-          <Education
-            schoolName={schoolName}
-            degreeTitle={degreeTitle}
-            schoolStartDate={schoolStartDate}
-            schoolEndDate={schoolEndDate}
-            isSubmited={isSubmited}
-            setSchoolName={setSchoolName}
-            setDegreeTitle={setDegreeTitle}
-            setSchoolStartDate={setSchoolStartDate}
-            setSchoolEndDate={setSchoolEndDate}
-            setIsSubmited={setIsSubmited}
-          />
-          <JobExperience 
-            jobTitle={jobTitle}
-            companyName={companyName}
-            startDate={startDate}
-            endDate={endDate}
-            isSubmited={isSubmited}
-            setCompanyName={setCompanyName}
-            setJobTitle={setJobTitle}
-            setStartDate={setStartDate}
-            setEndDate={setEndDate}
-            setIsSubmited={setIsSubmited}
-            />
-        </div>
-        <div id='cv-container'>
-          {isSubmited && 
-            <CV 
-              firstName={firstName} 
-              lastName={lastName} 
-              email={email} 
+    <>  
+        <Header />
+        <div className='app-container'>
+          <div id='cards-container'>
+            <GeneralInfos 
+              firstName={firstName}
+              lastName={lastName}
+              email={email}
               phoneNumber={phoneNumber}
-              jobTitle={jobTitle}
-              companyName={companyName}
-              startDate={startDate}
-              endDate={endDate}
+              isSubmited={isSubmited}
+              setFirstName={setFirstName}
+              setLastName={setLastName}
+              setEmail={setEmail}
+              setPhoneNumber={setPhoneNumber}
+              setIsSubmited={setIsSubmited}
+            />
+            <Education
               schoolName={schoolName}
               degreeTitle={degreeTitle}
               schoolStartDate={schoolStartDate}
               schoolEndDate={schoolEndDate}
+              isSubmited={isSubmited}
+              setSchoolName={setSchoolName}
+              setDegreeTitle={setDegreeTitle}
+              setSchoolStartDate={setSchoolStartDate}
+              setSchoolEndDate={setSchoolEndDate}
+              setIsSubmited={setIsSubmited}
+            />
+            <JobExperience 
+              jobTitle={jobTitle}
+              companyName={companyName}
+              startDate={startDate}
+              endDate={endDate}
+              isSubmited={isSubmited}
+              setCompanyName={setCompanyName}
+              setJobTitle={setJobTitle}
+              setStartDate={setStartDate}
+              setEndDate={setEndDate}
+              setIsSubmited={setIsSubmited}
               />
-            }
+          </div>
+          <div id='cv-container'>
+            {isSubmited && 
+              <CV 
+                firstName={firstName} 
+                lastName={lastName} 
+                email={email} 
+                phoneNumber={phoneNumber}
+                jobTitle={jobTitle}
+                companyName={companyName}
+                startDate={startDate}
+                endDate={endDate}
+                schoolName={schoolName}
+                degreeTitle={degreeTitle}
+                schoolStartDate={schoolStartDate}
+                schoolEndDate={schoolEndDate}
+                />
+              }
+          </div>
         </div>
     </>
   )
