@@ -18,7 +18,7 @@ function GeneralInfos(props){
     const plusButton = <FontAwesomeIcon icon={faPlus} />
     const user = <FontAwesomeIcon icon={faUser} />
     const [open, setOPen] = useState(false);
-    const [height,setHeight] = useState(80)
+    const [height,setHeight] = useState(8)
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -28,18 +28,18 @@ function GeneralInfos(props){
 
     const Toggle = () => {
         setOPen(!open)
-        if(height==480){
-            setHeight(80)
+        if(height==60){
+            setHeight(8)
             setArrow(<FontAwesomeIcon icon={faAngleDown} />)
         }else{
-            setHeight(480)
+            setHeight(60)
             setArrow(<FontAwesomeIcon icon={faAngleUp} />)
         }  
     }
 
     return(
         <>
-            <div className='flex-item' style={{width:'400px',height:height+'px'}}>
+            <div className='flex-item' style={{width:'400px',height:height+'%'}}>
                 <span>
                     <i className="icon">{user}</i>
                     <h2>Personal Information</h2> 

@@ -18,7 +18,7 @@ function Education(props) {
     const plusButton = <FontAwesomeIcon icon={faPlus} />
     const education = <FontAwesomeIcon icon = {faGraduationCap} />
     const [open, setOPen] = useState(false);
-    const [height,setHeight] = useState(80)
+    const [height,setHeight] = useState(8)
 
     const handleSumbit = event => {
         event.preventDefault()
@@ -27,16 +27,16 @@ function Education(props) {
 
     const Toggle = () => {
         setOPen(!open)
-        if(height==480){
-            setHeight(80)
+        if(height==60){
+            setHeight(8)
             setArrow(<FontAwesomeIcon icon={faAngleDown} />)
         }else{
-            setHeight(480)
+            setHeight(60)
             setArrow(<FontAwesomeIcon icon={faAngleUp} />)
         }  
    }
     return(
-        <div className='flex-item' style={{width:'400px',height:height+'px'}}>
+        <div className='flex-item' style={{width:'400px',height:height+'%'}}>
             <span>
                 <i className="icon">{education}</i>
                 <h2>Education</h2> 
