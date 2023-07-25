@@ -16,8 +16,8 @@ function CV (props){
                     <div className='user-full-name'>{lastName}</div>
                 </div>
                 <div className='container'>
-                    <i className='icon-contact'>{iconTelephone}</i><div className='user-contact'>{email}</div>
-                    <i className='icon-contact'>{iconEmail}</i><div className='user-contact'>{phoneNumber}</div>
+                    <i className='icon-contact'>{iconEmail}</i><div className='user-contact'>{email}</div>
+                    <i className='icon-contact'>{iconTelephone}</i><div className='user-contact'>{phoneNumber}</div>
                 </div>
             </div>
             <div id='education-container'>

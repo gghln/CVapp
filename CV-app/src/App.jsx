@@ -21,7 +21,7 @@ function App() {
   const [schoolEndDate,setSchoolEndDate] = useState('')
 
   return(
-    <div id='app-container'>
+    <>
         <div id='cards-container'>
           <GeneralInfos 
             firstName={firstName}
@@ -78,7 +78,7 @@ function App() {
               />
             }
         </div>
-    </div>
+    </>
   )
 }
 
