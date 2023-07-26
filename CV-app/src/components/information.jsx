@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
+import './styles/Form.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleUp,faAngleDown, faUser, faPlus} from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
-
+import Button from './Button'
 function GeneralInfos(props){  
     const {
         firstName, 
@@ -16,7 +17,6 @@ function GeneralInfos(props){
         setIsSubmited} = props
     const [arrow,setArrow] = useState(<FontAwesomeIcon icon={faAngleDown} />)
     const plusButton = <FontAwesomeIcon icon={faPlus} />
-    const user = <FontAwesomeIcon icon={faUser} />
     const [open, setOPen] = useState(false);
     const [height,setHeight] = useState(8)
 
@@ -41,9 +41,9 @@ function GeneralInfos(props){
         <>
             <div className='flex-item' style={{width:'400px',height:height+'%'}}>
                 <span>
-                    <i className="icon">{user}</i>
+                    <i className="icon"><FontAwesomeIcon icon={faUser} /></i>
                     <h2>Personal Information</h2> 
-                    <button onClick={Toggle}>{arrow}</button>
+                    <Button toggle={Toggle} value={arrow}/>
                 </span>  
                 { open && (
                     <form onSubmit={handleSubmit}>
@@ -55,7 +55,7 @@ function GeneralInfos(props){
                         <input type="email" placeholder='Email' value={email} onChange={event => setEmail(event.target.value)} />
                         <label >Phone</label>
                         <input type="tel" placeholder='Phone Number' value={phoneNumber} onChange={event => setPhoneNumber(event.target.value)}/>
-                        <button type='submit'>{plusButton}</button>
+                        <Button value={plusButton}/>
                     </form> 
                  )} 
             </div> 

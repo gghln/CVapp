@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
+import './styles/Form.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faAngleUp,faAngleDown, faGraduationCap,faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
-
+import Button from './Button'
 function Education(props) {
     const{
         schoolName,
@@ -16,7 +17,6 @@ function Education(props) {
         setIsSubmited} = props
     const [arrow,setArrow] = useState(<FontAwesomeIcon icon={faAngleDown} />)
     const plusButton = <FontAwesomeIcon icon={faPlus} />
-    const education = <FontAwesomeIcon icon = {faGraduationCap} />
     const [open, setOPen] = useState(false);
     const [height,setHeight] = useState(8)
 
@@ -38,9 +38,9 @@ function Education(props) {
     return(
         <div className='flex-item' style={{width:'400px',height:height+'%'}}>
             <span>
-                <i className="icon">{education}</i>
+                <i className="icon"><FontAwesomeIcon icon = {faGraduationCap} /></i>
                 <h2>Education</h2> 
-                <button onClick={Toggle}>{arrow}</button>
+                <Button toggle={Toggle} value={arrow}/>
             </span>
             { open && (
                 <form onSubmit={handleSumbit}>
@@ -52,7 +52,7 @@ function Education(props) {
                     <input type="date" name="from" placeholder='From' value={schoolStartDate} onChange={event => setSchoolStartDate(event.target.value)}/>
                     <label >Until:</label>
                     <input type="date" name="until" placeholder='Until' value={schoolEndDate} onChange={event => setSchoolEndDate(event.target.value)}/>
-                    <button type='submit'>{plusButton}</button>
+                    <Button value={plusButton}/>
                 </form> 
             )}
         </div>

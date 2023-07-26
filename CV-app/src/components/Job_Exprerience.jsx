@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
+import './styles/Form.css'
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleUp,faAngleDown, faBriefcase, faPlus} from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react'
+import Button from './Button'
 
 function JobExperience(props){
     const{
@@ -16,7 +18,6 @@ function JobExperience(props){
         setIsSubmited} = props
     const [arrow,setArrow] = useState(<FontAwesomeIcon icon={faAngleDown} />)
     const plusButton = <FontAwesomeIcon icon={faPlus} />
-    const work = <FontAwesomeIcon icon = {faBriefcase} />
     const [open, setOPen] = useState(false);
     const [height,setHeight] = useState(8)
 
@@ -38,9 +39,9 @@ function JobExperience(props){
     return(
         <div className='flex-item' style={{width:'400px',height:height+'%'}}>
             <span>
-                <i className="icon">{work}</i>
+                <i className="icon"><FontAwesomeIcon icon={faBriefcase} /></i>
                 <h2>Job Experience</h2> 
-                <button onClick={Toggle}>{arrow}</button>
+                <Button toggle={Toggle} value={arrow}/>
             </span>
             { open && (
                 <form onSubmit={handleSumbit}>
@@ -52,7 +53,7 @@ function JobExperience(props){
                     <input type="date" name="from" value={startDate} onChange={event => setStartDate(event.target.value)}/>
                     <label >End Date:</label>
                     <input type="date" name="until" value={endDate} onChange={event => setEndDate(event.target.value)}/>
-                    <button type='submit'>{plusButton}</button>
+                    <Button value={plusButton}/>
                 </form> 
             )}
         </div>
