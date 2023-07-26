@@ -19,7 +19,7 @@ function JobExperience(props){
     const [arrow,setArrow] = useState(<FontAwesomeIcon icon={faAngleDown} />)
     const plusButton = <FontAwesomeIcon icon={faPlus} />
     const [open, setOPen] = useState(false);
-    const [height,setHeight] = useState(8)
+    const [height,setHeight] = useState(10)
 
     const handleSumbit = event => {
         event.preventDefault()
@@ -28,11 +28,11 @@ function JobExperience(props){
 
     const Toggle = () => {
         setOPen(!open)
-        if(height==60){
-            setHeight(8)
+        if(height==70){
+            setHeight(10)
             setArrow(<FontAwesomeIcon icon={faAngleDown} />)
         }else{
-            setHeight(60)
+            setHeight(70)
             setArrow(<FontAwesomeIcon icon={faAngleUp} />)
         }  
    }
